@@ -42,7 +42,13 @@ app.post('/api/submit-form', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server berjalan di http://localhost:${PORT}`);
-});
+// Untuk development lokal
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Server berjalan di http://localhost:${PORT}`);
+  });
+}
+
+// Export untuk Vercel
+module.exports = app;
 

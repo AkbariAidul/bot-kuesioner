@@ -150,10 +150,56 @@ npm install puppeteer --force
 - Form orang lain tanpa izin
 - Melanggar Terms of Service Google Forms
 
-## Support
+## Deployment ke Vercel
 
-Jika ada error atau pertanyaan, cek console output untuk detail error message.
+### Langkah-langkah:
+
+1. **Install Vercel CLI** (opsional):
+```bash
+npm install -g vercel
+```
+
+2. **Push ke GitHub** (sudah kamu lakukan)
+
+3. **Buka https://vercel.com** dan login dengan GitHub
+
+4. **Import Project**:
+   - Klik "New Project"
+   - Pilih repository `bot-kuesioner`
+   - Klik "Import"
+
+5. **Configure Project**:
+   - Framework: Node.js
+   - Root Directory: ./
+   - Build Command: (kosongkan)
+   - Output Directory: (kosongkan)
+
+6. **Environment Variables** (opsional):
+   - Klik "Environment Variables"
+   - Tambahkan jika perlu:
+     - `PORT`: 3000
+     - `MAX_RESPONDENTS`: 500
+
+7. **Deploy**:
+   - Klik "Deploy"
+   - Tunggu proses selesai
+
+### URL Deployment
+
+Setelah deploy, kamu akan dapat URL seperti:
+```
+https://bot-kuesioner.vercel.app
+```
+
+### Catatan Penting
+
+⚠️ **Limitasi Vercel:**
+- Serverless functions punya timeout 60 detik (Pro) atau 10 detik (Free)
+- Bot yang berjalan lama mungkin timeout
+- Puppeteer memerlukan resources besar
+
+**Solusi:**
+- Gunakan Vercel Pro untuk timeout lebih lama
+- Atau host di platform lain seperti Railway, Render, atau Heroku
 
 ---
-
-**Dibuat dengan ❤️ menggunakan Puppeteer & Node.js**
